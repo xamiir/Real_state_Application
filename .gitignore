@@ -21,6 +21,9 @@ DerivedData
 *.ipa
 *.xcuserstate
 ios/.xcode.env.local
+# Ignore Android and iOS folders
+android/
+ios/
 
 # Android/IntelliJ
 #
