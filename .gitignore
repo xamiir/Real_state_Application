@@ -3,6 +3,7 @@
 .DS_Store
 
 # Xcode
+.vscode/
 #
 build/
 *.pbxuser
@@ -38,7 +39,9 @@ local.properties
 !debug.keystore
 
 # node.js
-#
+#expo
+
+expo
 node_modules/
 npm-debug.log
 yarn-error.log
