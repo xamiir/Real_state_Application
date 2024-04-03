@@ -6,8 +6,8 @@ import {ForgotPassword} from './src/screens/ForgotPasswordScreen';
 function App(): React.JSX.Element {
   return (
     <>
-      {/* <SignUp /> */}
-      <Login />
+      <SignUp />
+      {/* <Login /> */}
       {/* <ForgotPassword /> */}
     </>
   );

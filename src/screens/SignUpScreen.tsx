@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   ImageBackground,
   SafeAreaView,
@@ -13,8 +13,13 @@ import {spacing} from '../theme/spacing';
 import {typography} from '../theme/typography';
 import {timing} from '../theme/timing';
 import {ViewStyle, TextStyle, ImageStyle, StyleSheet} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export const SignUp = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
   return (
     <ImageBackground
       style={$IMAGE_BACKGROUND}
@@ -35,14 +40,30 @@ export const SignUp = () => {
               style={styles.input}
               placeholder="Password"
               placeholderTextColor={colors.dark}
-              secureTextEntry
+              secureTextEntry={!showPassword}
             />
+            <TouchableOpacity onPress={togglePasswordVisibility}>
+              <Icon
+                style={styles.showPasswordIcon}
+                name={showPassword ? 'eye-slash' : 'eye'}
+                size={20}
+                color="black"
+              />
+            </TouchableOpacity>
             <TextInput
               style={styles.input}
               placeholder="Confirm Password"
               placeholderTextColor={colors.dark}
-              secureTextEntry
+              secureTextEntry={!showPassword}
             />
+            <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
+              <Icon
+                style={styles.showPasswordIcon}
+                name={showPassword ? 'eye-slash' : 'eye'}
+                size={20}
+                color="black"
+              />
+            </TouchableOpacity>
             <TouchableOpacity style={styles.buttonStyle}>
               <Text style={styles.buttonTextStyle}>Sign Up</Text>
             </TouchableOpacity>
@@ -74,6 +95,12 @@ const styles = StyleSheet.create({
     marginBottom: spacing.small,
     marginLeft: spacing.large,
     width: '70%',
+  },
+  showPasswordIcon: {
+    position: 'absolute',
+    right: 0,
+    marginTop: -50,
+    padding: spacing.medium,
   },
   input: {
     backgroundColor: colors.text,

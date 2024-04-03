@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
+import {useState} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {colors} from '../theme/colors';
 import {spacing} from '../theme/spacing';
@@ -16,7 +17,10 @@ import {timing} from '../theme/timing';
 import {ViewStyle, TextStyle, ImageStyle, StyleSheet} from 'react-native';
 
 export const Login = () => {
-  const [showPassword, setShowPassword] = React.useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
   return (
     <ImageBackground
       style={$IMAGE_BACKGROUND}
@@ -39,12 +43,12 @@ export const Login = () => {
               placeholderTextColor={colors.dark}
               secureTextEntry={!showPassword}
             />
-            <TouchableOpacity>
+            <TouchableOpacity onPress={togglePasswordVisibility}>
               <Icon
-                style={styles.showPasswordIcon}
                 name={showPassword ? 'eye-slash' : 'eye'}
                 size={20}
                 color="black"
+                style={styles.showPasswordIcon}
               />
             </TouchableOpacity>
             <TouchableOpacity>
