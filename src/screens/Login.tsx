@@ -145,7 +145,7 @@ const $CARD_SIGN_IN: ViewStyle = {
   height: 470,
   shadowOffset: {
     width: 0,
-    height: 4,
+    height: 5,
   },
   shadowOpacity: 0.1,
   shadowRadius: 4.65,
